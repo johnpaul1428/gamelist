@@ -7,37 +7,39 @@
     
     <style>
         body {
+            /* Binabaan ang base font size para mas fit sa mobile */
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #f0f2f5; /* Very light background */
+            background-color: #f0f2f5; 
             color: #333;
+            font-size: 14px; /* BINAGO: Base font size para hindi masikip */
         }
         .container {
             max-width: 900px;
-            margin: 30px auto;
-            padding: 0 20px;
+            margin: 20px auto; /* Binawasan ang margin */
+            padding: 0 10px; /* Binawasan ang horizontal padding */
         }
 
         /* 1. Title Header */
         .main-header {
             background-color: #333;
             color: white;
-            padding: 25px 0; /* Mas malaking padding para sa header */
+            padding: 15px 0; /* BINAGO: Binawasan ang padding ng header */
             text-align: center;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
         .logo {
-            font-size: 34px; /* Bahagyang mas malaking title */
+            font-size: 28px; /* BINAGO: Binawasan ang title font size */
             margin: 0;
             font-weight: 700;
         }
         h2 {
-            margin-top: 30px; /* Mas malaking espasyo sa itaas ng subtitle */
+            margin-top: 20px; /* Binawasan ang espasyo */
             color: #333;
-            /* INALIS ANG BORDER-BOTTOM AYON SA REQUEST */
             border-bottom: none; 
-            padding-bottom: 5px; /* Inayos ang padding para sa spacing */
+            padding-bottom: 5px; 
+            font-size: 18px; /* Binawasan ang subtitle font size */
         }
 
         /* 2. Game List (Improved Table Styling and Spacing) */
@@ -45,7 +47,7 @@
             width: 100%;
             border-collapse: separate; 
             border-spacing: 0;
-            margin-top: 25px; /* Mas malaking espasyo sa itaas ng table */
+            margin-top: 15px; /* Binawasan ang espasyo */
             background-color: white;
             border-radius: 10px;
             overflow: hidden; 
@@ -53,10 +55,10 @@
             text-align: left;
         }
         .game-list-table th, .game-list-table td {
-            padding: 14px 20px; /* INCREASED PADDING for better overall spacing */
+            padding: 10px 15px; /* BINAGO: BINABAAN ang padding para mas magkasya */
             border: none;
             border-bottom: 1px solid #eee; 
-            text-align: left; /* Tiyakin ang left alignment para sa lahat ng cells */
+            text-align: left; 
         }
         .game-list-table th {
             background-color: #444;
@@ -64,6 +66,7 @@
             font-weight: 600;
             text-transform: uppercase;
             letter-spacing: 1px;
+            font-size: 12px; /* BINAGO: Para hindi masyadong malaki ang header text */
         }
         
         /* Alternating row color (Zebra Striping) */
@@ -80,9 +83,9 @@
         /* 3. Vertical Separator/Guhit */
         .game-list-table th:first-child, 
         .game-list-table td:first-child {
-            /* Nagdagdag ng vertical border sa kanan ng Game Title column */
             border-right: 1px solid #ccc; 
-            width: 85%; /* Binigyan ng mas malaking space ang Game Title */
+            width: 80%; /* Bahagyang binawasan para sa Size column */
+            word-wrap: break-word; /* Para mag-wrap ang mahabang title */
         }
         .game-list-table th:last-child {
             border-bottom: none; 
@@ -91,10 +94,44 @@
         /* Specific styling for the Size column */
         .size-cell {
             font-weight: 600; 
-            width: 15%; 
+            width: 20%; 
+            /* Para sigurado na maliit ang font size ng size value */
+            font-size: 14px; 
         }
         .game-list-table tbody tr:last-child td {
             border-bottom: none;
+        }
+
+        /* MEDIA QUERY para sa mas maliliit na screen (Mobile) */
+        @media (max-width: 600px) {
+            body {
+                font-size: 13px; /* Gawing mas maliit pa para sa maliit na phone */
+            }
+            .container {
+                margin: 10px auto; 
+                padding: 0 5px; /* Binawasan pa ang padding */
+            }
+            .logo {
+                font-size: 24px; /* Binawasan pa ang title */
+            }
+            h2 {
+                font-size: 16px;
+                margin-top: 15px;
+            }
+            .game-list-table th, .game-list-table td {
+                padding: 8px 10px; /* Masikip na padding */
+            }
+            .game-list-table th {
+                font-size: 11px;
+            }
+            .size-cell {
+                font-size: 13px;
+                width: 25%; /* Mas maliit na size column width */
+            }
+            .game-list-table th:first-child, 
+            .game-list-table td:first-child {
+                width: 75%;
+            }
         }
     </style>
 </head>
