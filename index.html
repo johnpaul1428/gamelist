@@ -3,53 +3,98 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jay Pee's Game Corner - Game List and Sizes</title>
+    <title>Jay Pee's Game Corner - Game List and Sizes (Dark Header)</title>
     
     <style>
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #f4f4f4; /* Light gray background */
+            background-color: #f0f2f5; /* Very light background */
             color: #333;
         }
         .container {
             max-width: 900px;
-            margin: 20px auto;
-            padding: 0 15px;
+            margin: 30px auto;
+            padding: 0 20px;
         }
 
-        /* 1. Title Header (Plain) */
+        /* 1. Title Header */
         .main-header {
-            background-color: #333; /* Dark header */
+            background-color: #333;
             color: white;
-            padding: 15px 0;
+            padding: 25px 0; /* Mas malaking padding para sa header */
             text-align: center;
-            border-bottom: 2px solid #555;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
         .logo {
-            font-size: 28px;
+            font-size: 34px; /* Bahagyang mas malaking title */
             margin: 0;
-            font-weight: bold;
+            font-weight: 700;
+        }
+        h2 {
+            margin-top: 30px; /* Mas malaking espasyo sa itaas ng subtitle */
+            color: #333;
+            /* INALIS ANG BORDER-BOTTOM AYON SA REQUEST */
+            border-bottom: none; 
+            padding-bottom: 5px; /* Inayos ang padding para sa spacing */
         }
 
-        /* 2. Game List (Plain Table) */
+        /* 2. Game List (Improved Table Styling and Spacing) */
         .game-list-table {
             width: 100%;
-            border-collapse: collapse;
-            margin-top: 20px;
+            border-collapse: separate; 
+            border-spacing: 0;
+            margin-top: 25px; /* Mas malaking espasyo sa itaas ng table */
             background-color: white;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
-        .game-list-table th, .game-list-table td {
-            border: 1px solid #ddd;
-            padding: 10px;
+            border-radius: 10px;
+            overflow: hidden; 
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
             text-align: left;
         }
+        .game-list-table th, .game-list-table td {
+            padding: 14px 20px; /* INCREASED PADDING for better overall spacing */
+            border: none;
+            border-bottom: 1px solid #eee; 
+            text-align: left; /* Tiyakin ang left alignment para sa lahat ng cells */
+        }
         .game-list-table th {
-            background-color: #e9e9e9;
-            font-weight: bold;
-            color: #333;
+            background-color: #444;
+            color: white;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        /* Alternating row color (Zebra Striping) */
+        .game-list-table tbody tr:nth-child(even) {
+            background-color: #f7f7f7; 
+        }
+
+        /* Hover effect */
+        .game-list-table tbody tr:hover {
+            background-color: #e9f5ff;
+            cursor: default;
+        }
+        
+        /* 3. Vertical Separator/Guhit */
+        .game-list-table th:first-child, 
+        .game-list-table td:first-child {
+            /* Nagdagdag ng vertical border sa kanan ng Game Title column */
+            border-right: 1px solid #ccc; 
+            width: 85%; /* Binigyan ng mas malaking space ang Game Title */
+        }
+        .game-list-table th:last-child {
+            border-bottom: none; 
+        }
+
+        /* Specific styling for the Size column */
+        .size-cell {
+            font-weight: 600; 
+            width: 15%; 
+        }
+        .game-list-table tbody tr:last-child td {
+            border-bottom: none;
         }
     </style>
 </head>
@@ -68,7 +113,7 @@
             <thead>
                 <tr>
                     <th>Game Title</th>
-                    <th>Size</th>
+                    <th class="size-cell">Size</th>
                 </tr>
             </thead>
             <tbody>
@@ -320,16 +365,18 @@
                 {id: 236, title: "WWE 2K25 The Bloodline Edition Complete DLC", sizeGB:92, genre: "Sports, Fighting"}
             ];
 
-            // 2. RENDERING LOGIC (Plain Table Rows)
+            // 2. RENDERING LOGIC
             rawGamesData.forEach(game => {
                 const row = tableBody.insertRow();
                 
-                // Column 1: Game Title
+                // Column 1: Game Title (Left-aligned)
                 const cellTitle = row.insertCell();
                 cellTitle.textContent = game.title;
                 
-                // Column 2: Size
+                // Column 2: Size (Left-aligned)
                 const cellSize = row.insertCell();
+                cellSize.classList.add('size-cell'); 
+                
                 // Format size: removes trailing .00 if present.
                 cellSize.textContent = `${game.sizeGB.toFixed(2).replace(/\.00$/, '')}GB`; 
             });
