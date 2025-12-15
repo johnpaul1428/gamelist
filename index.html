@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jay Pee's Game Corner - Plain List (Updated)</title>
+    <title>Jay Pee's Game Corner - Game List and Sizes</title>
     
     <style>
         body {
@@ -14,7 +14,7 @@
             color: #333;
         }
         .container {
-            max-width: 900px; /* Slightly wider for the long list */
+            max-width: 900px;
             margin: 20px auto;
             padding: 0 15px;
         }
@@ -51,11 +51,6 @@
             font-weight: bold;
             color: #333;
         }
-        .notes {
-            font-size: 0.9em;
-            color: #777;
-            margin-top: 5px;
-        }
     </style>
 </head>
 <body>
@@ -72,7 +67,6 @@
         <table id="game-list-table" class="game-list-table">
             <thead>
                 <tr>
-                    <th>#</th>
                     <th>Game Title</th>
                     <th>Size</th>
                 </tr>
@@ -87,7 +81,6 @@
             const tableBody = document.getElementById('game-list-table').getElementsByTagName('tbody')[0];
 
             // 1. COMPLETE GAME DATA (Your 236-item list)
-            // Note: We only keep id, title, and sizeGB (renamed to size with 'GB' suffix).
             const rawGamesData = [
                 {id: 1, title:"A Quiet Place: The Road Ahead (2024)", sizeGB:38, genre: "Horror, Adventure"},
                 {id: 2, title:"A Way Out", sizeGB:22, genre: "Action, Adventure, Coop"},
@@ -197,7 +190,7 @@
                 {id: 106, title:"Gundam Breaker 4 w/ DLC", sizeGB:10.2, genre: "Action, Mecha"},
                 {id: 107, title:"Hades", sizeGB:11.2, genre: "Action, Rogue-lite"},
                 {id: 108, title:"HALO: The Master Chief Collection", sizeGB:128, genre: "FPS, Shooter"},
-                {id: 109, title:"Heavy Rain (PS4 Version)", sizeGB:35, genre: "Adventure, Narrative"}, // Added a missing ID
+                {id: 109, title:"Heavy Rain (PS4 Version)", sizeGB:35, genre: "Adventure, Narrative"},
                 {id: 110, title:"Hellblade: Senua’s Sacrifice Enhanced Edition", sizeGB:19.1, genre: "Action, Adventure"},
                 {id: 111, title:"Hitman 3 World of Assassination", sizeGB:75.2, genre: "Stealth, Action"},
                 {id: 112, title:"Hogwarts Legacy - (not working on windows 11 24h2)", sizeGB:73.2, genre: "RPG, Open World"},
@@ -331,20 +324,14 @@
             rawGamesData.forEach(game => {
                 const row = tableBody.insertRow();
                 
-                // Column 1: # (ID)
-                const cellId = row.insertCell();
-                cellId.textContent = game.id;
-                
-                // Column 2: Game Title
+                // Column 1: Game Title
                 const cellTitle = row.insertCell();
-                // We show the title as is from the user's list, including notes
-                cellTitle.innerHTML = `
-                    ${game.title}
-                `;
+                cellTitle.textContent = game.title;
                 
-                // Column 3: Size
+                // Column 2: Size
                 const cellSize = row.insertCell();
-                cellSize.textContent = `${game.sizeGB.toFixed(2).replace(/\.00$/, '')}GB`; // Format size to 2 decimal places if needed, remove trailing .00
+                // Format size: removes trailing .00 if present.
+                cellSize.textContent = `${game.sizeGB.toFixed(2).replace(/\.00$/, '')}GB`; 
             });
         });
     </script>
