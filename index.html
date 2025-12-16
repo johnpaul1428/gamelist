@@ -52,11 +52,14 @@
             color: #333;
         }
 
-        /* Ibinabaon ko ang Footer Styles dito */
+        /* Bagong Footer Style */
         .main-footer {
-            margin-top: 20px; /* Dagdag space sa pagitan ng table at footer */
-            background-color: transparent;
-            width: 100%;
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 15px 0;
+            margin-top: 20px;
+            font-size: 14px;
         }
     </style>
 </head>
@@ -80,21 +83,13 @@
             <tbody>
                 </tbody>
         </table>
-        
-        <footer class="main-footer" style="
-            padding: 10px 20px 10px; 
-            color: #999; 
-            font-size: 0.85em;
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; 
-            /* ADDED: Centering the text content */
-            text-align: center; 
-        ">
-            <div style="max-width: 1200px; margin: 0 auto;">
-                <p style="margin: 0;">&copy; 2024 Jay Pee's Game Corner. All Rights Reserved.</p>
-            </div>
-        </footer>
     </main>
-
+    
+    <footer class="main-footer">
+        <div class="container">
+            <p>&copy; 2025 Jay Pee's Game Corner. All rights reserved.</p>
+        </div>
+    </footer>
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             const tableBody = document.getElementById('game-list-table').getElementsByTagName('tbody')[0];
@@ -118,7 +113,7 @@
                 {id: 15, title:"Assassin's Creed Revelations", sizeGB:6.8, genre: "Action, Adventure"},
                 {id: 16, title:"Assassin's Creed Rogue", sizeGB:12, genre: "Action, Adventure"},
                 {id: 17, title:"Assassin's Creed Syndicate", sizeGB:63, genre: "Action, Adventure"},
-                {id: 18, title:"Assassin's Creed Unity", sizeGB:50, genre: "Action, Adventure"},
+                {id: 18, title:"Assassin's Creed Unity", sizeGB:45, genre: "Action, Adventure"},
                 {id: 19, title:"Assassin's Creed Valhalla Ultimate Pack", sizeGB:158, genre: "RPG, Adventure"},
                 {id: 20, title:"Assetto Corsa Competizione", sizeGB:19.1, genre: "Racing, Sim"},
                 {id: 21, title:"Attack on Titan", sizeGB:17.2, genre: "Action, Anime"},
